@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mudit Jaiswal | Senior Application Security Engineer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Senior Application Security Engineer with expertise in VAPT, web & mobile security, red teaming, and cloud security." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #0b1120;
+      --card: #020617;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.15);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1e293b;
+      --chip-bg: #020617;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top, #0f172a 0, #020617 45%, #000 100%);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 3rem;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem 2rem;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #38bdf8, #4f46e5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: #0b1120;
+      box-shadow: 0 0 0 2px rgba(148, 163, 184, 0.4);
+    }
+
+    .brand-text h1 {
+      font-size: 1.9rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    .brand-text p {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.5rem;
+    }
+
+    nav a {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--muted);
+      position: relative;
+      padding-bottom: 0.2rem;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #38bdf8, #a855f7);
+      transition: width 0.2s ease-out;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
+      gap: 2.25rem;
+      margin-bottom: 2.75rem;
+    }
+
+    .hero-text h2 {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-highlight {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--muted);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-highlight span {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.25);
+    }
+
+    .hero-text p {
+      color: var(--muted);
+      font-size: 0.98rem;
+      margin-bottom: 1.15rem;
+      max-width: 40rem;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .badge {
+      border-radius: 999px;
+      padding: 0.25rem 0.7rem;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      font-size: 0.78rem;
+      color: var(--muted);
+      background: linear-gradient(135deg, #020617, #020617);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      border-radius: 999px;
+      padding: 0.6rem 1.3rem;
+      font-size: 0.9rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      text-decoration: none;
+      transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, background 0.12s ease-out;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #38bdf8, #a855f7);
+      color: #0f172a;
+      font-weight: 600;
+      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(56, 189, 248, 0.45);
+    }
+
+    .btn-secondary {
+      background: rgba(15, 23, 42, 0.9);
+      border-color: rgba(148, 163, 184, 0.5);
+      color: var(--muted);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(15, 23, 42, 1);
+      transform: translateY(-1px);
+    }
+
+    .hero-contact {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 0.75rem;
+    }
+
+    .hero-contact span {
+      display: inline-block;
+      margin-right: 0.9rem;
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.08), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(168, 85, 247, 0.12), transparent 55%),
+                  var(--bg-alt);
+      border-radius: 1.5rem;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      padding: 1.4rem 1.4rem 1.1rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.9);
+    }
+
+    .hero-card h3 {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-metric {
+      font-size: 1.9rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-label {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-pill {
+      padding: 0.2rem 0.65rem;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--muted);
+    }
+
+    .hero-footnote {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .sections {
+      display: flex;
+      flex-direction: column;
+      gap: 2.2rem;
+    }
+
+    section {
+      border-radius: 1.4rem;
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.85);
+      padding: 1.6rem 1.5rem;
+      backdrop-filter: blur(12px);
+    }
+
+    section h3 {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+      gap: 1.8rem;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      font-size: 0.94rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .chip {
+      font-size: 0.8rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: var(--chip-bg);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      color: var(--muted);
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 1.4rem;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: 0.4rem;
+      top: 0.1rem;
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px var(--accent-soft);
+    }
+
+    .timeline-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+    }
+
+    .timeline-meta {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .timeline-list {
+      margin-left: 0.2rem;
+      margin-top: 0.25rem;
+    }
+
+    .timeline-list li {
+      font-size: 0.9rem;
+      color: var(--text);
+      margin-bottom: 0.28rem;
+    }
+
+    ul {
+      list-style: disc;
+      padding-left: 1.2rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 1rem;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 1.6rem;
+      align-items: center;
+    }
+
+    .contact-details p {
+      font-size: 0.94rem;
+      color: var(--muted);
+      margin-bottom: 0.45rem;
+    }
+
+    .contact-details strong {
+      color: var(--text);
+    }
+
+    .contact-tagline {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .contact-card {
+      border-radius: 1rem;
+      border: 1px dashed rgba(148, 163, 184, 0.6);
+      padding: 1.1rem 1.1rem 0.9rem;
+      background: radial-gradient(circle at top, rgba(56, 189, 248, 0.12), transparent 60%),
+                  rgba(15, 23, 42, 0.95);
+    }
+
+    .contact-card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    footer {
+      margin-top: 2.2rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.6rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero-card {
+        order: -1;
+      }
+      .two-col,
+      .grid-2,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav {
+        margin-top: 0.35rem;
+      }
+      .page {
+        padding-inline: 1.1rem;
+      }
+      .hero-text h2 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">
+        <div class="avatar">MJ</div>
+        <div class="brand-text">
+          <h1>Mudit Jaiswal</h1>
+          <p>Senior Application Security Engineer · VAPT · Web &amp; Mobile Security · Red Teaming</p>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#certs">Certifications</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-text">
+          <div class="hero-highlight">
+            <span></span>
+            <div>Cybersecurity · Application Security · VAPT</div>
+          </div>
+          <h2>Securing digital products end-to-end, from code to cloud.</h2>
+          <p>
+            Results-driven Senior Application Security Engineer with nearly 7 years of experience in
+            vulnerability assessment, penetration testing, red teaming, and cloud security across banking,
+            telecom, and e-commerce.
+          </p>
+          <div class="hero-badges">
+            <div class="badge">800+ Web Apps Secured</div>
+            <div class="badge">100+ Mobile Apps</div>
+            <div class="badge">OSCP Certified</div>
+            <div class="badge">Speaker · HackInBo Italy</div>
+          </div>
+          <div class="hero-actions">
+            <a href="#contact" class="btn-primary">
+              Let’s connect
+              <span>↗</span>
+            </a>
+            <!-- Update href to your actual resume file if you host it -->
+            <a href="Mudit_Jaiswal_Resume.pdf" class="btn-secondary">
+              Download Resume
+            </a>
+          </div>
+          <div class="hero-contact">
+            <span>📍 Dubai Marina, Dubai, UAE</span>
+            <span>📧 <a href="mailto:mjais0508@gmail.com">mjais0508@gmail.com</a></span>
+            <span>🔗 <a href="https://www.linkedin.com/in/muditjaiswal3" target="_blank" rel="noreferrer">LinkedIn</a></span>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <h3>Snapshot</h3>
+          <div class="hero-metric">7+ yrs</div>
+          <div class="hero-label">AppSec · VAPT · Red Teaming</div>
+          <div class="hero-pill-row">
+            <div class="hero-pill">OWASP Top 10</div>
+            <div class="hero-pill">Web &amp; Mobile</div>
+            <div class="hero-pill">Cloud (AWS · GCP)</div>
+            <div class="hero-pill">CI/CD · SAST · SCA</div>
+          </div>
+          <p class="hero-footnote">
+            I help teams ship faster and safer by embedding security into architecture, code reviews,
+            and pipelines—while keeping developer experience front and center.
+          </p>
+        </aside>
+      </section>
+
+      <div class="sections">
+        <!-- ABOUT -->
+        <section id="about">
+          <h3>About</h3>
+          <div class="two-col">
+            <div>
+              <p class="section-subtitle">
+                Senior Application Security Engineer with a strong offensive mindset and a builder’s approach
+                to automation and tooling.
+              </p>
+              <p style="font-size: 0.95rem; color: #d1d5db; margin-bottom: 0.6rem;">
+                I specialize in securing modern web and mobile applications, performing in-depth VAPT,
+                red teaming, and cloud security assessments for high-scale platforms in banking,
+                telecom, and e-commerce.
+              </p>
+              <p style="font-size: 0.95rem; color: #9ca3af;">
+                My focus is on integrating security into the SDLC—from design and threat modeling to CI/CD
+                and production monitoring—while building automation in Python to make security testing repeatable,
+                scalable, and developer-friendly.
+              </p>
+            </div>
+            <div>
+              <p class="section-subtitle">Quick facts</p>
+              <div class="chips">
+                <span class="chip">Application Security</span>
+                <span class="chip">VAPT (Web &amp; Mobile)</span>
+                <span class="chip">Red Teaming</span>
+                <span class="chip">Cloud Security (AWS/GCP)</span>
+                <span class="chip">Threat Modeling</span>
+                <span class="chip">Security Automation</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section id="experience">
+          <h3>Experience</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-title">Senior Application Security Engineer</div>
+              <div class="timeline-meta">Emirates NBD · Dubai, UAE · Dec 2023 – Present</div>
+              <ul class="timeline-list">
+                <li>Embed security practices into Agile SDLC, including secure coding reviews and threat modeling.</li>
+                <li>Implement SAST and SCA tools in CI/CD to detect vulnerabilities in code and third-party dependencies.</li>
+                <li>Conduct web and Android penetration tests aligned with OWASP standards.</li>
+                <li>Lead threat profiling, risk assessment, and remediation tracking across multiple squads.</li>
+                <li>Review firewall and WAF configurations to strengthen defenses against web and network attacks.</li>
+                <li>Perform cloud security assessments on AWS and GCP using tools such as CS Suite and Scout2.</li>
+                <li>Build custom exploits and Python automation to streamline security testing and research.</li>
+              </ul>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-title">Senior Application Security Analyst</div>
+              <div class="timeline-meta">Bharti Airtel · Gurugram, India · Mar 2022 – Dec 2023</div>
+              <ul class="timeline-list">
+                <li>Performed security testing for large-scale, customer-facing telecom platforms and APIs.</li>
+                <li>Identified vulnerabilities in complex network architectures and backend systems.</li>
+                <li>Collaborated with developers and network engineers to implement security best practices.</li>
+                <li>Executed web and Android application penetration tests using OWASP methodologies.</li>
+                <li>Used offensive security techniques including SQLi, XSS, shell uploads, and Python exploit development.</li>
+              </ul>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-title">Cyber Security Analyst</div>
+              <div class="timeline-meta">Infosec Ventures · Gurugram, India · May 2018 – Mar 2022</div>
+              <ul class="timeline-list">
+                <li>Delivered VAPT for diverse web and mobile applications using manual and automated testing.</li>
+                <li>Analyzed logs from security devices, OSs, databases, and web apps for threat detection.</li>
+                <li>Worked extensively with Kali Linux, Burp Suite Pro, SQLmap, Nmap, Nessus, Nikto, Metasploit, Acunetix, and Directory Buster.</li>
+                <li>Led projects and mentored team members; conducted technical interviews to hire security talent.</li>
+                <li>Built security automation using AWS, Git, Python, MongoDB, and Flask.</li>
+                <li>Identified and exploited payment gateway misconfigurations to improve financial app security.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section id="skills">
+          <h3>Skills</h3>
+          <div class="grid-2">
+            <div>
+              <p class="section-subtitle">Security &amp; Tools</p>
+              <div class="pill-list">
+                <span class="chip">Web/Mobile App Security</span>
+                <span class="chip">VAPT</span>
+                <span class="chip">OWASP Top 10</span>
+                <span class="chip">Red Teaming</span>
+                <span class="chip">SAST / SCA</span>
+                <span class="chip">DAST</span>
+                <span class="chip">Burp Suite Pro</span>
+                <span class="chip">Kali Linux</span>
+                <span class="chip">Nmap</span>
+                <span class="chip">SQLmap</span>
+                <span class="chip">Nessus</span>
+                <span class="chip">Metasploit</span>
+                <span class="chip">Acunetix</span>
+                <span class="chip">Directory Buster</span>
+                <span class="chip">CS Suite</span>
+                <span class="chip">Scout2</span>
+              </div>
+
+              <p class="section-subtitle" style="margin-top: 1.1rem;">Android &amp; Mobile</p>
+              <div class="pill-list">
+                <span class="chip">Frida</span>
+                <span class="chip">Magisk</span>
+                <span class="chip">OKCAT</span>
+                <span class="chip">ADB</span>
+                <span class="chip">MOBSF</span>
+              </div>
+            </div>
+
+            <div>
+              <p class="section-subtitle">Technical &amp; Professional</p>
+              <div class="pill-list">
+                <span class="chip">Python</span>
+                <span class="chip">Java</span>
+                <span class="chip">MySQL</span>
+                <span class="chip">MongoDB</span>
+                <span class="chip">Flask</span>
+                <span class="chip">AWS</span>
+                <span class="chip">Git</span>
+                <span class="chip">Jira</span>
+                <span class="chip">ServiceNow</span>
+              </div>
+
+              <p class="section-subtitle" style="margin-top: 1.1rem;">Soft Skills</p>
+              <div class="pill-list">
+                <span class="chip">Project Management</span>
+                <span class="chip">Leadership</span>
+                <span class="chip">Stakeholder Management</span>
+                <span class="chip">Critical Thinking</span>
+                <span class="chip">Teamwork</span>
+                <span class="chip">Effective Communication</span>
+                <span class="chip">Time Management</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CERTS & EDUCATION -->
+        <section id="certs">
+          <h3>Certifications &amp; Education</h3>
+          <div class="two-col">
+            <div>
+              <p class="section-subtitle">Certifications &amp; Highlights</p>
+              <ul>
+                <li><strong>Offensive Security Certified Professional (OSCP)</strong></li>
+                <li>Speaker at <strong>HackInBo Italy</strong> — “Breaching Modern Android Defenses”</li>
+              </ul>
+            </div>
+            <div>
+              <p class="section-subtitle">Education</p>
+              <ul>
+                <li><strong>Bachelor of Computer Applications (BCA)</strong><br />Arunachal University · 2015 – 2018</li>
+              </ul>
+              <p class="section-subtitle" style="margin-top: 1rem;">Languages</p>
+              <div class="pill-list">
+                <span class="chip">English (Fluent)</span>
+                <span class="chip">Hindi</span>
+              </div>
+              <p class="section-subtitle" style="margin-top: 1rem;">Interests</p>
+              <div class="pill-list">
+                <span class="chip">Photography</span>
+                <span class="chip">CTFs</span>
+                <span class="chip">Hiking</span>
+                <span class="chip">Snooker</span>
+                <span class="chip">Table Tennis</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact">
+          <h3>Contact</h3>
+          <div class="contact-grid">
+            <div class="contact-details">
+              <p class="contact-tagline">
+                Open to roles in Application Security, Offensive Security, and Security Engineering,
+                especially where security is embedded deeply into product and engineering culture.
+              </p>
+              <p><strong>Email:</strong> <a href="mailto:mjais0508@gmail.com">mjais0508@gmail.com</a></p>
+              <p><strong>Phone:</strong> +971-545386310</p>
+              <p><strong>Location:</strong> Dubai Marina, Dubai, UAE</p>
+              <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/muditjaiswal3" target="_blank" rel="noreferrer">linkedin.com/in/muditjaiswal3</a></p>
+            </div>
+            <div class="contact-card">
+              <p>
+                If you’d like to discuss an opportunity, security engagement, or a collaboration, the fastest way
+                to reach me is via email or LinkedIn. I’m particularly interested in roles involving
+                large-scale application security, mobile security, red teaming, or building security automation.
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> Mudit Jaiswal.</div>
+      <div>muditjaiswal.me</div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
